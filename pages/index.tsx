@@ -7,7 +7,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Trunk Mini</title>
-        <meta name="description" content="Literature review for high-performing teams" />
+        <meta name="description" content="offline-first collaborative reference manager" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
