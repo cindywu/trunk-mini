@@ -1,24 +1,19 @@
 import React from 'react'
 import styles from '../styles/ReferenceGrid.module.css'
 
-type IReference = {
-  order: number
-  abbreviation: string
-  title: string
-}
-
 type Props = {
-  k: any
-  value: IReference
+  id: any
+  value: any
 }
 
-export default function Reference({ value }: Props) {
+export default function Reference({ id, value }: Props) {
   return (
     <>
       <a href="https://nextjs.org/docs" className={styles.card}>
         <div>REF-{value.order} &rarr;</div>
         <h1>{value.abbreviation}</h1>
         <p>{value.title}</p>
+        <div className={styles.uuid}>{id}</div>
       </a>
     </>
   )

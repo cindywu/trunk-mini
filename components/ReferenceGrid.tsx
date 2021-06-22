@@ -20,6 +20,8 @@ export default function ReferenceGrid({ rep } : Props) {
     [],
   )
 
+  console.log('referenes', references)
+
   function handleReferenceAddClick() {
     setShowReferenceAdd(!showReferenceAdd)
   }
@@ -48,7 +50,7 @@ export default function ReferenceGrid({ rep } : Props) {
       <div className={styles.grid}>
         {references.map (([k, v]) => {
           return (
-            <Reference key={k} value={v} />
+            <Reference key={k} id={k} value={v} />
           )
         })}
         {/* <a href="https://nextjs.org/docs" className={styles.card}>
