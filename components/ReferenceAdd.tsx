@@ -27,17 +27,16 @@ export default function ReferenceAdd({ references, handleReferenceAddClick, hand
   return (
     <div className={styles.container}>
       <div className={styles.card}>
-        <div className={styles.btnContainer}>
-          {/* <button>Expand</button> */}
-          <button
-            className={styles.btnSecondary}
-            onClick={handleReferenceAddClick}
-          >&times;</button>
+        <div className={styles.top}>
+          <div className={styles.left}>REF-{references.length + 1} &rarr;</div>
+          <div className={styles.btnContainer}>
+            {/* <button>Expand</button> */}
+            <button
+              className={styles.btnExit}
+              onClick={handleReferenceAddClick}
+            >&times;</button>
+          </div>
         </div>
-        <div>
-
-        </div>
-        <div>REF-{references.length + 1} &rarr;</div>
         <div>
           <h2>
             <input

@@ -32,15 +32,35 @@
   text-align: right;
 }
 
-.btnSecondary {
-  padding: 1em;
+.btnExit {
   border: none;
   background: inherit;
   font-size: 1em;
   cursor: pointer;
 }
 
+.btnSecondary {
+  padding: .8em 1.2em;
+  border: none;
+  background: inherit;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btnSecondary:hover {
+  background-color:hsl(0, 0%, 90%);
+}
+
 .btnContainer {
   text-align: right;
 }
 
+.top {
+  padding: 1em 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  color: hsl(0, 0%, 70%);
+}

@@ -11,8 +11,16 @@ export default function Reference({ id, value }: Props) {
     <>
       <a href="https://nextjs.org/docs" className={styles.card}>
         <div>REF-{value.order} &rarr;</div>
-        <h1>{value.abbreviation}</h1>
-        <p>{value.title}</p>
+        {value.abbreviation ?
+         <h1>{value.abbreviation}</h1>
+        : <h1 className={styles.placeholder}>Untitled</h1>
+        }
+        {value.title ?
+          <p>{value.title}</p>
+        :
+          <p className={styles.placeholder}>Untitled</p>
+        }
+
         <div className={styles.uuid}>{id}</div>
       </a>
     </>
