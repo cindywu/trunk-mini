@@ -1,0 +1,46 @@
+.container {
+  z-index: 1;
+  background: hsla(0, 0%, 96%, 95%);
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  top: 10%;
+  margin: 10% auto 0;
+  padding: 2em;
+  text-align: left;
+  border: 1px solid hsla(0, 0%, 77%);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px hsla(0, 0%, 77%), 0 4px 20px hsla(0, 0%, 77%);
+}
+
+.input {
+  border: none;
+  font-size: 1em;
+  width: 90%;
+  background-color: inherit;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.btn {
+  margin: 2em 0;
+  text-align: right;
+}
+
+.btnSecondary {
+  padding: 1em;
+  border: none;
+  background: inherit;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.btnContainer {
+  text-align: right;
+}
+
