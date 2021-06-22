@@ -1,4 +1,5 @@
 import { getDB } from '../../db.js'
+import Pusher from 'pusher'
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req: any, res: any) => {
@@ -87,4 +88,15 @@ async function createReference(db: any, {id, abbreviation, title, order}: any, v
   )
 }
 
-async function sendPoke() {}
+async function sendPoke() {
+  const pusher = new Pusher({
+    appId: process.env.NEXT_PUBLIC_TRUNK_MINI_PUSHER_APP_ID!,
+    key: process.env.NEXT_PUBLIC_TRUNK_MINI_PUSHER_KEY!,
+    secret: process.env.NEXT_PUBLIC_TRUNK_MINI_PUSHER_SECRET!,
+    cluster: process.env.NEXT_PUBLIC_TRUNK_MINI_PUSHER_CLUSTER!,
+    useTLS: true,
+  })
+  const t0 = Date.now()
+  await pusher.trigger('default', 'poke', {})
+  console.log('Sent poke in', Date.now() - t0)
+}

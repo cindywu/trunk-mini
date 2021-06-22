@@ -6,6 +6,8 @@ import ReferenceGrid from '../../components/ReferenceGrid'
 
 import { Replicache } from 'replicache'
 
+import Pusher from 'pusher-js'
+
 
 export default function Workspace() {
   const [rep, setRep] = useState<any>(null)
@@ -34,6 +36,17 @@ export default function Workspace() {
   }, [])
 
   function listen(rep: any) {
+    console.log('listening')
+    // Listen for pokes, and pull whenever we get one.
+    Pusher.logToConsole = true
+    const pusher = new Pusher(process.env.NEXT_PUBLIC_TRUNK_MINI_PUSHER_KEY!, {
+      cluster: process.env.NEXT_PUBLIC_TRUNK_MINI_PUSHER_CLUSTER,
+    })
+    const channel = pusher.subscribe('default')
+    channel.bind('poke', () => {
+      console.log('got poked')
+      rep.pull()
+    })
 
   }
 
