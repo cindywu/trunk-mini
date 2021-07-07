@@ -26,6 +26,9 @@ export default function Workspace() {
               abbreviation,
               title
             })
+          },
+          async deleteReference(tx, {id}) {
+            await tx.del(`ref/${id}`)
           }
         }
       })
@@ -50,7 +53,11 @@ export default function Workspace() {
 
   }
 
-  return rep && <ReferenceGrid rep={rep} />
+  function onDelete(id: string){
+    rep.mutate.deleteReference({id: id})
+  }
+
+  return rep && <ReferenceGrid rep={rep} onDelete={onDelete} />
 
   // return (
   //   <div className={styles.container}>

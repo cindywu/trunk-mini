@@ -4,12 +4,18 @@ import styles from '../styles/ReferenceGrid.module.css'
 type Props = {
   id: any
   value: any
+  onDelete: (id: string) => void
 }
 
-export default function Reference({ id, value }: Props) {
+export default function Reference({ id, value, onDelete }: Props) {
+  function handleDelete() {
+    const keyToId = id.slice(4)
+    onDelete(keyToId)
+  }
+
   return (
     <>
-      <a href="https://nextjs.org/docs" className={styles.card}>
+      <a className={styles.card}>
         <div>REF-{value.order} &rarr;</div>
         {value.abbreviation ?
          <h1>{value.abbreviation}</h1>
@@ -20,8 +26,8 @@ export default function Reference({ id, value }: Props) {
         :
           <p className={styles.placeholder}>Untitled</p>
         }
-
         <div className={styles.uuid}>{id}</div>
+        <div onClick={handleDelete}>&times;</div>
       </a>
     </>
   )

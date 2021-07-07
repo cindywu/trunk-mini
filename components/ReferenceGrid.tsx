@@ -6,9 +6,10 @@ import ReferenceAdd from './ReferenceAdd'
 
 type Props = {
   rep: any
+  onDelete: (id: string) => void
 }
 
-export default function ReferenceGrid({ rep } : Props) {
+export default function ReferenceGrid({ rep, onDelete} : Props) {
   const [showReferenceAdd, setShowReferenceAdd] = useState(false)
   const references = useSubscribe(
     rep,
@@ -50,7 +51,7 @@ export default function ReferenceGrid({ rep } : Props) {
       <div className={styles.grid}>
         {references.map (([k, v]) => {
           return (
-            <Reference key={k} id={k} value={v} />
+            <Reference key={k} id={k} value={v} onDelete={onDelete}/>
           )
         })}
         {/* <a href="https://nextjs.org/docs" className={styles.card}>

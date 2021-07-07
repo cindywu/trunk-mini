@@ -52,6 +52,9 @@ export default async (req: any, res: any) => {
           case 'createReference':
             await createReference(db, mutation.args, version)
             break
+          case 'deleteReference':
+            await deleteReference(db, mutation.args)
+            break
           default:
             throw new Error(`Unknown mutation: ${mutation.name}`)
         }
@@ -85,6 +88,14 @@ async function createReference(db: any, {id, abbreviation, title, order}: any, v
       id, abbreviation, title, ord, version) values
       ($1, $2, $3, $4, $5)`,
       [id, abbreviation, title, order, version],
+  )
+}
+
+async function deleteReference(db: any, {id}: any) {
+  await db.none(
+    `DELETE FROM trunk_mini
+    WHERE id = ($1)`,
+    [id],
   )
 }
 
